@@ -14,7 +14,13 @@ class PageController extends Controller
 
     public function blog()
     {
-        $posts = Post::get();
+        // $posts = Post::get();
+        // $post = Post::first();
+        // $post = Post::find(25);
+
+        //dd($post);
+        $posts = Post::latest()->paginate();
+
         return view('blog', ['posts' => $posts]);
     }
 
